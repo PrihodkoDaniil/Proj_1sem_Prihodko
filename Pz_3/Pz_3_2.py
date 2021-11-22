@@ -25,26 +25,6 @@ if a<b<c:
     a = a * 2
     b = b * 2
     c = c * 2
-elif a<c<b:
-    a = a * 2
-    b = b * 2
-    c = c * 2
-elif b<a<c:
-    a = a * 2
-    b = b * 2
-    c = c * 2
-elif b<c<a:
-    a = a * 2
-    b = b * 2
-    c = c * 2
-elif c<a<b:
-    a = a * 2
-    b = b * 2
-    c = c * 2
-elif c<b<a:
-    a = a * 2
-    b = b * 2
-    c = c * 2
 else:
     a = a * (-1)
     b = b * (-1)
