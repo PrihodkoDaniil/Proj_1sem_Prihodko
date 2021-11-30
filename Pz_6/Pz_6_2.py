@@ -13,16 +13,16 @@ while i < N:
 print(a)
 for i in range(len(a)-1):
     g = abs(a[i]-a[i+1]) # находим разность чисел по парам
-    b.append(g)
-    f = min(b)
-    if abs(a[i]-a[i+1]) == f:
+    b.append(g) # добавляем все разности в дополнительный список
+    f = min(b) # находим наименьшую разность
+    if abs(a[i]-a[i+1]) == f: # ищем числа разность которых и есть минимальная
         k = a[i]
         k2 = a[i+1]
-        index1 = a.index(k)
-        index2 = a.index(k2)
+        index1 = a.index(k) # находим номер первого числа
+        index2 = a.index(k2) # находим номер второго числа
 print("Минимальная разность: ", f)
 print("числа из которых получена минимальная разность: ", k, k2)
-if index1 < index2:
+if index1 < index2: # выводим номера в порядке возрастания
     print("Номера этих двух чисел: ", index1, index2)
 else:
     print("Номера этих двух чисел: ", index2, index1)
