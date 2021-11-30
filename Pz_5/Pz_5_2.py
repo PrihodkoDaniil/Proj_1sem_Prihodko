@@ -6,7 +6,7 @@ def PowerA3(A):
 n=1 # какое число посчету
 i=5 # максимальное количество введенных чисел
 while n <= i:
-    number = float(input())
+    number = float(input("Введите число: "))
     B = PowerA3(number)
     n = n + 1
     print(round(B,3))
