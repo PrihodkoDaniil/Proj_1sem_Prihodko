@@ -18,7 +18,7 @@ for i in open('text18-17.txt', encoding='UTF-8'):
         if t == ":":
             d += 1
 print(end='\n')
-print('Количество знаков перпинания ', d, end='\n')
+print('Количество знаков препинания ', d, end='\n')
 f1 = open('text18-17.txt', encoding='UTF-8')
 l = f1.readlines()
 l[1], l[2], l[3], l[4], l[5], l[6] = l[6], l[1], l[2], l[3], l[4], l[5]
