@@ -29,7 +29,7 @@ for i in range(len(k)):
         t +=1
 f2 = open("Secondtask.txt","a")
 f2.write('\n')
-print('Количество элементов: ',len(k),
-      'Произведение элементов: ',pro,
-      'Количество пар: ',t, file=f2)
+print('Количество элементов:',len(k),
+      '\nПроизведение элементов:',pro,
+      '\nКоличество пар:',t, file=f2)
 f2.close()
