@@ -7,5 +7,5 @@ def triangle_perimeter(a=a_, b=b_, c=c_):
     return P
 def triangle_area(a=a_, b=b_, c=c_):
     p=(a+b+c)/2
-    S=(p*(p-a)*(p-b)*(p-c))**1/2
+    S=(p*(p-a)*(p-b)*(p-c))**(1/2)
     return S
