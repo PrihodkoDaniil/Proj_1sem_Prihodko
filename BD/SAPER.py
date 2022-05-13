@@ -6,7 +6,7 @@ info_users=[
     (4, 'Михаель',1, 24, 1050),
     (5, 'Юлианна',2, 16, 600),
 ]
-with sq.connect('SAPER.db') as con:
+with sq.connect('saper.db') as con:
     cur=con.cursor()
     cur.execute("""CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
