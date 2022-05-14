@@ -28,10 +28,10 @@ class Main(tk.Frame):
                                     bd=0, compound=tk.TOP, image=self.update_img)
         btn_edit_dialog.pack(side=tk.LEFT)
 
-        self.srch_img = tk.PhotoImage(file="BD/13.gif")
-        btn_edit_dialog = tk.Button(toolbar, text="Поиск", command=self.open_update_dialog, bg='#5da130',
-                                    bd=0, compound=tk.TOP, image=self.srch_img)
-        btn_edit_dialog.pack(side=tk.LEFT)
+        self.search_img = tk.PhotoImage(file="BD/13.gif")
+        btn_search_dialog = tk.Button(toolbar, text="Поиск", command=self.open_search, bg='#5da130',
+                                    bd=0, compound=tk.TOP, image=self.search_img)
+        btn_search_dialog.pack(side=tk.LEFT)
 
         self.tree = ttk.Treeview(self, columns=('user_id', 'name', 'sex', 'old', 'score'), height=15, show='headings')
 
@@ -60,10 +60,6 @@ class Main(tk.Frame):
 
         self.view_records()
 
-    def update_srch(self):
-        self.db.con.commit()
-        self.view_records()
-
     def view_records(self):
         self.db.cur.execute("""SELECT * FROM users""")
         [self.tree.delete(i) for i in self.tree.get_children()]
@@ -74,8 +70,8 @@ class Main(tk.Frame):
 
     def open_update_dialog(self):
         Update()
-    def open_srch_dialog(self):
-        Srch()
+    def open_search(self):
+        Search(root, app)
 
 
 
@@ -156,18 +152,18 @@ class Search(tk.Toplevel):
 
     def __init__(self, root, app):
         super().__init__(root)
-        self.init_child()
+        self.init_search()
         self.view = app
 
-    def init_child(self):
+    def init_search(self):
         self.title('Поиск')
-        self.geometry('400x100+400+300')
+        self.geometry('400x70+400+300')
         self.resizable(False, False)
 
-        label_description = tk.Label(self, text='Поиск')
-        label_description.place(x=50, y=25)
-        self.entry_description = ttk.Entry(self)
-        self.entry_description.place(x=110, y=25)
+        label_search = tk.Label(self, text='Поиск')
+        label_search.place(x=50, y=25)
+        self.entry_search = ttk.Entry(self)
+        self.entry_search.place(x=110, y=25)
 
 
         btn_cancel = ttk.Button(self, text='Закрыть', command=self.destroy)
@@ -178,14 +174,7 @@ class Search(tk.Toplevel):
 
         self.grab_set()
         self.focus_set()
-class Srch(Search):
-    def __init__(self):
-        super().__init__(root, app)
-        self.init_edit()
-        self.view = app
 
-    def init_edit(self):
-        self.title("Поиск")
 class DB:
     def __init__(self):
 
@@ -213,4 +202,3 @@ if __name__ == "__main__":
     root.geometry("650x450+300+200")
     root.resizable(False, False)
     root.mainloop()
-
