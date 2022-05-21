@@ -78,18 +78,19 @@ class Main(tk.Frame):
     def view_records(self):
         self.db.cur.execute("""SELECT * FROM БЮРО_ПО_ТРУДОЙСТРОЙСТВУ""")
         [self.tree.delete(i) for i in self.tree.get_children()]
-        [self.tree.insert('', 'end', values=row) for row in self.db.cur.fetchall()]
+        [self.tree.insert('','end',values=row) for row in self.db.cur.fetchall()]
+
 
     def delete_records(self):
         for selection_item in self.tree.selection():
             self.db.cur.execute("""DELETE FROM БЮРО_ПО_ТРУДОЙСТРОЙСТВУ WHERE user_id=?""",
-                                (self.tree.set(selection_item, '#1'),))
+                                (self.tree.set(selection_item, '#1'),(self.tree.insert(self.db.cur.fetchall()))))
         self.db.con.commit()
         self.view_records()
 
     def search_records(self, score):
         score = (score,)
-        self.db.cur.execute("""SELECT * FROM БЮРО_ПО_ТРУДОЙСТРОЙСТВУ WHERE score>=?""", score)
+        self.db.cur.execute("""SELECT * FROM БЮРО_ПО_ТРУДОЙСТРОЙСТВУ WHERE score>=?""",score)
         [self.tree.delete(i) for i in self.tree.get_children()]
         [self.tree.insert('', 'end', values=row) for row in self.db.cur.fetchall()]
 
@@ -193,7 +194,7 @@ class Search(tk.Toplevel):
         self.view = app
 
     def init_search(self):
-        self.title("Поиск")
+        self.title("Поиск по стажу работы")
         self.geometry("300x100+400+300")
         self.resizable(False, False)
 
