@@ -1,0 +1,2 @@
+﻿Pz_2.obj : error LNK2005: main уже определен в Pz_3_1.obj
+C:\Users\user\Documents\Proj_1sem_Prihodko\C++\x64\Debug\C++.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более
